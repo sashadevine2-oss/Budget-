@@ -8,7 +8,6 @@
   const collapse = s => String(s == null ? '' : s).replace(/\s+/g, ' ').trim();
 
   const CATS = [
-    ['Melody', ['Melody flights', 'Melody expenses', 'Melody trips']],
     ['House', ['Rent', 'Utilities & wifi', 'Tenant insurance']],
     ['Subscriptions', ['YouTube Premium', 'Amazon Prime', 'Other subscriptions']],
     ['Transport', ['Uber / taxi', 'Transit & Bike Share', 'Gas', 'Car insurance', 'Car maintenance & parking']],
@@ -17,7 +16,7 @@
     ['Fun (below board)', ['Beers & bars', 'Miscellaneous']],
     ['Health & fitness', ['Gym', 'Pharmacy & personal care']],
     ['Shopping', ['Clothing & gear', 'Amazon & household']],
-    ['Trips', ['Boys trips', 'Solo / other trips']],
+    ['Trips', ['Trips']],
     ['Gifts', ['Family gifts', 'Other gifts']],
     ['Other', ['E-transfer/miscellaneous', 'Uncategorized']],
     ['Savings', SAVE],
@@ -30,10 +29,7 @@
     CATS.forEach(([g, subs]) => subs.forEach(n => categories.push({ name: n, group: g })));
     return {
       v: 1, income: 0, categories, budgets: {}, bills: [],
-      travel: { yearly: 0, who: [
-        { name: 'Melody', cats: ['Melody flights', 'Melody trips'], share: 0.55, budgetCat: 'Melody trips' },
-        { name: 'The boys', cats: ['Boys trips'], share: 0.25, budgetCat: 'Boys trips' },
-        { name: 'Solo / other', cats: ['Solo / other trips'], share: 0.20, budgetCat: 'Solo / other trips' }] },
+      travel: { yearly: 0, who: [{ name: 'Trips', cats: ['Trips'], share: 1, budgetCat: 'Trips' }] },
       rules: [['PAYMENT RECEIVED', 'Card payment / transfer'], ['UBER EATS', 'Dinners out'], ['UBER', 'Uber / taxi'],
               ['LCBO', 'Beers & bars'], ['LOBLAWS', 'Groceries'], ['NO FRILLS', 'Groceries'], ['SHOPPERS DRUG MART', 'Pharmacy & personal care'],
               ['PRESTO', 'Transit & Bike Share'], ['BIKE SHARE', 'Transit & Bike Share'], ['STARBUCKS', 'Coffee & snacks'],

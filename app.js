@@ -92,7 +92,7 @@
     const today = new Date(); const iso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
     return `<h1>Add</h1><div class="sub">For cash, e-transfers and savings. Card purchases arrive from your statements.</div>
       <input id="a-amt" class="big" inputmode="decimal" placeholder="$0.00" autocomplete="off">
-      <label class="f">Description</label><input id="a-desc" placeholder="Coffee with Melody" autocomplete="off">
+      <label class="f">Description</label><input id="a-desc" placeholder="Coffee with a friend" autocomplete="off">
       <label class="f">Category</label><button class="pick" id="a-cat"><span>${esc(U.addCat)}</span><span>›</span></button>
       <label class="f">Date</label><input id="a-date" type="date" value="${iso}">
       <label class="f">Paid with</label><select id="a-card">${['Cash / debit', 'Bank transfer'].map(c => `<option ${U.addCard === c ? 'selected' : ''}>${c}</option>`).join('')}</select>
@@ -114,7 +114,7 @@
       <h2>Dates</h2><div class="card">
         <div class="inline"><label>Track reimbursements from<small>Work expenses are counted from this date</small></label><input type="date" style="width:150px" data-set="reimbFrom" value="${esc(S.settings.reimbFrom || '')}"></div></div>
       <h2>Monthly bills</h2><div class="card">${bills}</div>
-      <h2>Travel fund</h2><div class="card">${numRow('Yearly budget', 'travel', S.travel.yearly)}${who}<div class="sub" style="padding:6px 0">Shares total ${total}%${total !== 100 ? ' (should be 100)' : ''}.</div></div>
+      <h2>Travel fund</h2><div class="card">${numRow('Yearly budget', 'travel', S.travel.yearly)}${S.travel.who.length > 1 ? who + `<div class="sub" style="padding:6px 0">Shares total ${total}%${total !== 100 ? ' (should be 100)' : ''}.</div>` : '<div class="sub" style="padding:6px 0">The monthly Trips budget is this divided by 12.</div>'}</div>
       <h2>Budgets</h2><div class="card">${budgets}</div>
       <h2>Sorting rules</h2><div class="sub">If a keyword appears in a description, it gets that category. Newer rules win.</div>
       <div class="card scroll" style="margin-top:8px">${rules || '<div class="row sub">None</div>'}</div>
